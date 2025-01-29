@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx playwright test",
+    "test:frontend": "npx playwright test BuggyCarFronendTests.spec.ts",
+    "test:api": "npx playwright test BuggyCarApiTests.spec.ts"
   },
   "author": "",
   "license": "ISC",
