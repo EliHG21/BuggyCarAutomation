@@ -6,7 +6,7 @@ export class ProfilePage extends BasePage {
     //Locators
     private firstNameField = this.page.locator('#firstName');
     private lastNameField = this.page.locator('#lastName');
-    private selectGenderDropdown = this.page.locator('#gender');
+    private genderField = this.page.locator('#gender');
     private ageField = this.page.locator('#age');
     private addressField = this.page.locator('#address');
     private phoneField = this.page.locator('#phone');
@@ -33,7 +33,7 @@ export class ProfilePage extends BasePage {
     }
 
     public async fillGenderField(genderOption: string) {
-        await this.selectOption(this.selectGenderDropdown, genderOption);
+        await this.fill(this.genderField, genderOption);
     }
 
     public async fillAgeField(ageText: string) {
@@ -81,7 +81,7 @@ export class ProfilePage extends BasePage {
     }
 
     public async getGenderCurrentValue(): Promise<string> {
-        await this.selectGenderDropdown.scrollIntoViewIfNeeded();
-        return await this.selectGenderDropdown.inputValue();
+        await this.genderField.scrollIntoViewIfNeeded();
+        return await this.genderField.inputValue();
     }
 }

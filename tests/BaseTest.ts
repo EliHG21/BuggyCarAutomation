@@ -5,7 +5,8 @@ import { Header } from "../Components/Header";
 import { LoggedHeader } from "../Components/LoggedHeader";
 
 export const test = base.extend<{
-    homePage: HomePage
+    homePage: HomePage,
+    loggedHeader: LoggedHeader
 }>({
     page: async ({ page }, use) => {
         await page.goto('https://buggy.justtestit.org/');
@@ -17,6 +18,10 @@ export const test = base.extend<{
     homePage: async ({ page }, use) => {
         let homePage = new HomePage(page);
         await use(homePage);
+    },
+    loggedHeader: async ({ page }, use) => {
+        let loggedHeader = new LoggedHeader(page);
+        await use(loggedHeader);
     }
 })
 
